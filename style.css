@@ -5,7 +5,7 @@ body {
     height: 200vmin;
   }
 
-  .object {
+  .object-sol {
     border-radius: 100%;
     position: absolute;
     margin: auto;
