@@ -39,10 +39,17 @@ body {
     width: 8vmin;
   }
   
- 
+
   #sol {
     height: 20vmin;
     width: 20vmin;
   }
   
+  
+#planetinha {
+  height: 2vmin;
+  width: 2vmin;
+}
+
+
   
