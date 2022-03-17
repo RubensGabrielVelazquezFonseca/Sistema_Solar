@@ -8,6 +8,7 @@ let massa = massaElement.value.replace(",", ".");
 let raio = raioElement.value;
 let radiano = 0;
 let tempo = 0;
+let espacoPercorrido = 0;
 const orbita = document.getElementById("orbita");
 
 orbita.style.height = `${raio}vmin`;
@@ -17,20 +18,22 @@ setInterval(() => {
   planeta.style.left = `${Math.cos(radiano) * raio}vmin`;
   planeta.style.top = `${Math.sin(radiano) * raio}vmin`;
   velocidade =  Math.sqrt ( gravitacional * massa/raio);
-  document.getElementById("velocidade").innerText=velocidade.toFixed(4);
-  radiano += velocidade * massa;
-  console.log(planeta.style.top>raio-5)
-  if(tempo==raio){
-    tempo=0;
-    tempoElement.innerText=tempo;
-  }
-}, 1000 / 60); 
+  document.getElementById("velocidade").innerText=velocidade.toFixed(2);
+  radiano += velocidade * ( [gravitacional * massa/raio] / 100000);
+  
+},1000 / 60); 
 setInterval(() => {
  tempo++;
  tempoElement.innerText=tempo;
-},1 ) 
+ espacoPercorrido = (2 * 3.14) * raio;
+ document.getElementById("espacoPercorrido").innerText=espacoPercorrido.toFixed(2);
+},999 ) 
+
 
 function mudarValores() {
+  if(tempo != null){
+    tempo = null;
+    }
   raio = raioElement.value;
   massa = massaElement.value.replace(",", ".");
   orbita.style.height = `${raio}vmin`;
